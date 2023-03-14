@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaCode &middot; Change the world with a click</title>
+    <link rel="stylesheet" href="https://nispar2009.github.io/spectrum-stylr-beta/light.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <script src="script.js"></script>
+    <style>
+        .template {
+            display: none;
+        }
+
+        .tut {
+            display: none;
+        }
+
+        .template:target {
+            display: block;
+        }
+
+        .tut:target {
+            display: block;
+        }
+
+        .line {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-top: 2px solid lightblue;
+        }
+
+        .form {
+            width: 750px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-desktop" style="position: fixed; text-align: center;">
+        <a href="https://nispar2009.github.io/CodeTron" class="nav-desktop-item nav-desktop-link">CodeTron</a>
+        <a href="https://nispar2009.github.io/AlphaCode" class="nav-desktop-item nav-desktop-link">AlphaCode</a>
+    </div>
+    <div style="height: 50px;"></div>
+
+    <h1 class="heading">Meet AlphaCode</h1>
+    <h2 class="heading">&mdash;an all-new rendering of the classic!</h2>
+
+    <div class="line"></div>
+
+    <p>Enter your code below and immediately see the output. We also have templates which allow you to get readymade
+        code for each output. You can also compare two variables. Learn how
+        to use it with our docs.</p>
+
+    <div id="control">
+        <button class="btn btn-success" onclick="run('code')">Run Code</button><button class="btn btn-danger"
+            onclick="cls()">Clear terminal</button><button class="btn btn-warning" onclick="purgeVars()">Purge
+            variables</button>
+    </div>
+
+    <br><br>
+
+    <textarea style="width: 60%; height: 150px;" id="code" class="form"
+        spellcheck="false">| Enter your AlphaCode here</textarea>
+
+    <br><br>
+
+    <div class="card">
+        <h2 class="heading">Terminal</h2>
+        <ul id="output"></ul>
+    </div>
+
+    <div class="line"></div>
+
+    <h2 class="heading">Templates</h2>
+    <button class="btn" onclick="window.location.replace('#auth')">Authentication</button>
+    <button class="btn" onclick="window.location.replace('#name')">Greeting</button>
+    <button class="btn" onclick="window.location.replace('#hw')">Hello, world!</button>
+    <button class="btn" onclick="window.location.replace('#comment')">Comments</button>
+    <br><br>
+    <div class="template" id="auth">
+        <textarea style="width: 60%; height: 150px;" class="form" id="1" spellcheck="false">
+right-password=qwerty| Setting right-password variable to "qwerty" 
+auth-msg=Logged in.| Setting auth-msg variable to "Logged in."
+user-entered-password=asdf| Setting user-entered-password variable to "asdf"
+right-password?user-entered-password| Comparing right-password with user-entered-password
+--auth-msg| Returning auth-msg if above condition is true
+user-entered-password=qwerty| Setting user-entered-password variable to "qwerty"
+right-password?user-entered-password| Comparing right-password with user-entered-password
+--auth-msg| Returning auth-msg if above condition is true</textarea>
+        <br><button class="btn btn-info" onclick="run('1')">Test</button>
+    </div>
+    <div class="template" id="name">
+        <textarea style="width: 60%; height: 150px;" class="form" id="2" spellcheck="false">
+name=Nisanth
+greeting=Hello, 
+--greeting
+--name</textarea>
+        <br><button class="btn btn-info" onclick="run('2')">Test</button>
+    </div>
+    <div class="template" id="hw">
+        <textarea style="width: 60%; height: 150px;" class="form" id="3" spellcheck="false">
+hw=Hello, world!
+--hw</textarea>
+        <br><button class="btn btn-info" onclick="run('3')">Test</button>
+    </div>
+    <div class="template" id="comment">
+        <textarea style="width: 60%; height: 150px;" class="form" id="4" spellcheck="false">
+| This is a comment that won't be executed
+greeting=Hello| The part after | won't be run
+--greeting</textarea>
+        <br><button class="btn btn-info" onclick="run('4')">Test</button>
+    </div>
+
+    <div class="line"></div>
+</body>
+
+</html>
